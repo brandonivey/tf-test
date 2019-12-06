@@ -20,7 +20,7 @@ variable "default_key" {
 
 variable "tags" {
   description = "A map of tags to add to all resources"
-  type = "map"
+  type = map
   default = {
     Project     = "mandrill"
     Environment = "mandrill-tools"
