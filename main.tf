@@ -27,7 +27,7 @@ resource "aws_instance" "default" {
     instance_type   = var.instance_type
     ebs_optimized   = true
     key_name        = var.default_key
-    subnet_id       = data.terraform_remote_state.vpc.outputs.public_subnet_ids[2]
+    subnet_id       = data.aws_subnet.selected.id
     tags = merge(
             var.tags, 
             {
