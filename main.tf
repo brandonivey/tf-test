@@ -20,7 +20,6 @@ resource "aws_instance" "default" {
     instance_type               = var.instance_type
     ebs_optimized               = true
     key_name                    = var.default_key
-    associate_public_ip_address = var.publicly_accessible
     tags = merge(
             var.tags, 
             {
