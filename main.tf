@@ -16,10 +16,11 @@ data "aws_ami" "centos" {
 }
 
 resource "aws_instance" "default" {
-    ami                         = data.aws_ami.centos.id
-    instance_type               = var.instance_type
-    ebs_optimized               = true
-    key_name                    = var.default_key
+    ami             = data.aws_ami.centos.id
+    instance_type   = var.instance_type
+    ebs_optimized   = true
+    key_name        = var.default_key
+    subnet_id       = data.terraform_remote_state.vpc.outputs.public_subnet_ids[2]
     tags = merge(
             var.tags, 
             {
