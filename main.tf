@@ -15,6 +15,13 @@ data "aws_ami" "centos" {
     }
 }
 
+data "aws_subnet" "selected" {
+    filter {
+        name   = "tag:Name"
+        values = ["mandrill-tools PublicSubnetA"]
+    }
+}
+
 resource "aws_instance" "default" {
     ami             = data.aws_ami.centos.id
     instance_type   = var.instance_type

@@ -10,13 +10,3 @@ provider "template" {
 terraform {
   required_version = ">= 0.12"
 }
-
-
-data "terraform_remote_state" "vpc" {
-  backend = "s3"
-  config = {
-    bucket = "mandrill-tf-state-west-1"
-    key    = "mandrill-tools.vpc.tfstate"
-    region = "us-west-1"
-  }
-}
